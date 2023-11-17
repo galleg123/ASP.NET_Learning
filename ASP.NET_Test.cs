@@ -24,22 +24,16 @@ public class Program
         return sum;
     }
 
-    static int MultiplyNumbers(params int[] numbers)
+    static int MultiplyNumbers(int number, params int[] numbers)
     {
-        int product = 0;
-        bool firstIteration = true;
+        int product = number;
         foreach (int num in numbers)
         {
-
-            if (firstIteration)
-            {
-                firstIteration = false;
-                product = num;
-                continue;
-            }
-
             product *= num;
         }
         return product;
     }
+
+
+
 }
