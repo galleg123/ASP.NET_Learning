@@ -1,27 +1,45 @@
 using System;
 
-class Program
+public class Program
 {
-    static void Main()
+    public static void Main()
     {
         // Example usage of the AddNumbers function
         int result = AddNumbers(5, 7);
         Console.WriteLine("The sum is: " + result);
 
         int result2 = MultiplyNumbers(5, 7);
-        Console.WriteLine("The sum is: " + result);
+        Console.WriteLine("The product is: " + result2);
     }
 
     // Definition of the AddNumbers function
-    static int AddNumbers(int num1, int num2)
+    static int AddNumbers(params int[] numbers)
     {
-        int sum = num1 + num2;
+        int sum = 0;
+
+        foreach (int num in numbers)
+        {
+            sum += num;
+        }
         return sum;
     }
 
-    static int MultiplyNumbers(int num1, int num2)
+    static int MultiplyNumbers(params int[] numbers)
     {
-        int product = num1 * num2;
-        return product
+        int product = 0;
+        bool firstIteration = true;
+        foreach (int num in numbers)
+        {
+
+            if (firstIteration)
+            {
+                firstIteration = false;
+                product = num;
+                continue;
+            }
+
+            product *= num;
+        }
+        return product;
     }
 }
