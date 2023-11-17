@@ -13,9 +13,14 @@ class Program
     }
 
     // Definition of the AddNumbers function
-    static int AddNumbers(int num1, int num2)
+    static int AddNumbers(params int[] numbers)
     {
-        int sum = num1 + num2;
+        int sum = 0
+
+        foreach (int num in numbers)
+        {
+            sum += num;
+        }
         return sum;
     }
 
